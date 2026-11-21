@@ -13,7 +13,7 @@ const navItems = [
   { href: "/presentations", label: "Presentations", icon: "🎤" },
   { href: "/seating", label: "Seating Plans", icon: "🪑" },
   { href: "/activities", label: "Activities", icon: "🎉" },
-  { href: "/login", label: "Login", icon: "🔐" },
+  { href: "/manual", label: "User Manual", icon: "📖" },
 ];
 
 export default function Sidebar() {
