@@ -11,7 +11,8 @@ const navItems = [
   { href: "/traffic-lights", label: "Traffic Lights", icon: "🚦" },
   { href: "/reports", label: "Reports", icon: "📄" },
   { href: "/presentations", label: "Presentations", icon: "🎤" },
-  { href: "/seating", label: "Seating Plans", icon: "🪑" },
+  { href: "/green-light", label: "Green Light", icon: "🟢" },
+  { href: "/applications", label: "Applications", icon: "📝" },
   { href: "/activities", label: "Activities", icon: "🎉" },
   { href: "/manual", label: "User Manual", icon: "📖" },
 ];
