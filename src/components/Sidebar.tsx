@@ -9,9 +9,11 @@ const navItems = [
   { href: "/members", label: "Members", icon: "👥" },
   { href: "/tasks", label: "Tasks", icon: "✅" },
   { href: "/traffic-lights", label: "Traffic Lights", icon: "🚦" },
+  { href: "/reports", label: "Reports", icon: "📄" },
   { href: "/presentations", label: "Presentations", icon: "🎤" },
   { href: "/seating", label: "Seating Plans", icon: "🪑" },
   { href: "/activities", label: "Activities", icon: "🎉" },
+  { href: "/login", label: "Login", icon: "🔐" },
 ];
 
 export default function Sidebar() {
