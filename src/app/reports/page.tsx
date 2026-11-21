@@ -5,17 +5,20 @@ import { useState } from "react";
 export default function ReportsPage() {
   const [rows, setRows] = useState<string[][]>([]);
   const [fileName, setFileName] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setFileName(file.name);
+    setMessage("Processing...");
     const reader = new FileReader();
     reader.onload = (ev) => {
       const text = ev.target?.result as string;
-      const lines = text.split("\n").filter(l => l.trim());
-      const parsed = lines.slice(0, 20).map(l => l.split(",").map(c => c.trim().replace(/"/g, "")));
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      const parsed = lines.slice(0, 30).map(l => l.split(",").map(c => c.trim().replace(/^"|"$/g, "")));
       setRows(parsed);
+      setMessage(`Loaded ${lines.length} rows. Preview shown below.`);
     };
     reader.readAsText(file);
   };
@@ -24,9 +27,9 @@ export default function ReportsPage() {
     <div>
       <h1 className="text-3xl font-bold text-gray-800 mb-6">BNI Connect Reports</h1>
       <div className="bg-white rounded-xl shadow p-6 mb-6">
-        <p className="text-gray-600 mb-4">Upload a CSV export from BNI Connect (Traffic Lights or PALMS).</p>
-        <input type="file" accept=".csv" onChange={handleUpload} />
-        {fileName && <p className="text-sm mt-2 text-green-600">Loaded: {fileName}</p>}
+        <p className="text-gray-700 mb-4">Upload a CSV export from BNI Connect (Traffic Lights, PALMS, or Member Ranking).</p>
+        <input type="file" accept=".csv" onChange={handleUpload} className="mb-3" />
+        {fileName && <p className="text-sm text-green-700">{message}</p>}
       </div>
       {rows.length > 0 && (
         <div className="bg-white rounded-xl shadow overflow-x-auto">
@@ -39,7 +42,6 @@ export default function ReportsPage() {
               ))}
             </tbody>
           </table>
-          <p className="text-xs text-gray-400 p-3">Showing first 20 rows. Full parsing & Traffic Lights update coming next.</p>
         </div>
       )}
     </div>
