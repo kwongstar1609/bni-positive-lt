@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3eee6;
+  --color-surface: #fffdfb;
+  --color-surface-2: #f7f1e8;
+  --color-fg: #1c1412;
+  --color-muted: #5e534c;
+  --color-primary: #8e1d2c;
+  --color-primary-fg: #fff7f5;
+  --color-border: #e3d8cc;
+  --color-line: #d7cbbd;
+  --color-green: #17693a;
+  --color-green-bg: #e5f6eb;
+  --color-yellow: #8a5a00;
+  --color-yellow-bg: #fff3d4;
+  --color-red: #a61b22;
+  --color-red-bg: #fde8e6;
+  --color-gray: #57534e;
+  --color-gray-bg: #ece7e1;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --radius-lg: 0.9rem;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1,
+  h2,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .field {
+    width: 100%;
+    min-height: 2.75rem;
+    border-radius: 0.7rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    color: var(--color-fg);
+    padding: 0.55rem 0.75rem;
+    font-size: 0.95rem;
+  }
+  .btn {
+    min-height: 2.75rem;
+    border-radius: 0.7rem;
+    padding: 0.5rem 0.9rem;
+    font-weight: 600;
+    background: var(--color-primary);
+    color: var(--color-primary-fg);
+  }
+  .btn:hover {
+    filter: brightness(1.05);
+  }
+  .btn-ghost {
+    min-height: 2.75rem;
+    border-radius: 0.7rem;
+    padding: 0.5rem 0.9rem;
+    font-weight: 600;
+    background: var(--color-surface);
+    color: var(--color-fg);
+    border: 1px solid var(--color-line);
+  }
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+}
